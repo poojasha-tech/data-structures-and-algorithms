@@ -1,0 +1,48 @@
+function numOfSubarrays(arr, k, threshold) {
+    let subArraySum = 0;
+    let sum = [];
+    let count = 0;
+    //first window of length k
+    for (let i = 0; i < k; i++) {
+        subArraySum += arr[i]
+    }
+    sum.push(subArraySum / k)
+
+    //sliding window 
+    for (let i = k; i < arr.length; i++) {
+        subArraySum = subArraySum - arr[i - k] + arr[i];
+        sum.push(subArraySum / k)
+    }
+
+    // to get avergae > or = to thushhold
+    for (let i = 0; i < sum.length; i++) {
+        if (sum[i] >= threshold) {
+            count++;
+        }
+        
+    }
+    return count;
+};
+
+console.log(numOfSubarrays([2, 2, 2, 2, 5, 5, 5, 8], 3, 4));
+
+
+//betetr version withoiut storing in sum var
+var numOfSubarrays = function(arr, k, threshold) {
+    let subArraySum = 0;
+    let count = 0;
+    //first window of length k
+    for (let i = 0; i < k; i++) {
+        subArraySum += arr[i]
+    }
+    if((subArraySum/k)>=threshold) count++;
+
+    //sliding window 
+    for (let i = k; i < arr.length; i++) {
+        subArraySum = subArraySum - arr[i - k] + arr[i];
+        if((subArraySum/k)>=threshold) count++;
+    }
+
+    return count;
+   
+};
