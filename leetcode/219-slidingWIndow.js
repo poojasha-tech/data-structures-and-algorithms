@@ -1,35 +1,29 @@
 function containDuplicates(nums, k) {
-    const set = new Set();
-    let left = 0;
-    for (let right = 0; right <= nums.length - 1; right++) {
-        if (set.has(nums[right])) return true
-        else {
-            set.add(nums[right]);
+    for(let i = 0; i < nums.length; i++){
+        for(let j = i+1; j <= i+k && j < nums.length; j++){
+            if(nums[i] == nums[j]) return true;
         }
-
-        if (right - left >= k) {
-            set.delete(nums[left]);
-            left++
-        }
-
     }
     return false;
 }
 
+function containsDub(nums, k){
+   const bag= new Set()
 
+   for(let i=0; i<=k && i<nums.length ; i++){
+    if(bag.has(nums[i])) return true 
+    bag.add(nums[i])
+   }
 
-function containDuplicates(nums,k){
-    for(let i=0;i<nums.length-k-1;i++){
-        for(let j=i+1;j<=i+k;j++){
-            if(nums[i]===nums[j]){
-                return true;
-            }
-        }
-    }
-    return false;
+   for (let i=0; i<nums.length-k-1;i++){
+    bag.delete(nums[i])
+    if(bag.has(nums[i+k+1])) return true
+    bag.add(nums[i+k+1])
+   }
+   return false;
+
 
 }
-
-console.log(containDuplicates([1,3,1], 1))
+console.log(containsDub([1,2,3,1,2,3], 2))
 
 // 134212
