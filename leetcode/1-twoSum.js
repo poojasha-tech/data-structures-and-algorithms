@@ -11,7 +11,7 @@ function twoSum(nums,t){
     for(let i=0;i<nums.length;i++){
         let target_=t-nums[i];
         if(sumMap.has(target_)){
-            return [sumMap.get(target_),i];
+            return [sumMap.get(target_),i]; // mapped value to index [key , value]=> value:index
         }
 
         sumMap.set(nums[i],i);
