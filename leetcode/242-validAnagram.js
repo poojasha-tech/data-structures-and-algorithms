@@ -27,7 +27,8 @@ function validAnagramOptimise(s,t){
     const freqMap=new Map();
 
     for(let letters of s){
-        //freqMap.set(letters , (freqMap.get(letters) || 0)) +1;
+        //freqMap.set(letters , (freqMap.get(letters) || 0) +1);
+        
         if(freqMap.has(letters)){
             freqMap.set(letters, freqMap.get(letters)+1);
         }

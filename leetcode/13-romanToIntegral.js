@@ -18,9 +18,12 @@ function romanToInt(s){
             int+=roman[s[i]]
         }
     }
-    int+=roman[s[s.length-1]] //why add last character separately? because in for loop we are checking till s.length-1 to avoid out of bound error while checking s[i+1]
+    int+=roman[s[s.length-1]] //why add last character separately? 
+                              // because in for loop we are checking till s.length-1 
+                            // to avoid out of bound error while checking s[i+1]
     return int;
 
 }
 
-console.log(romanToInt("MCMXCIV"))
+//console.log(romanToInt("MCMXCIV"));
+console.log(romanToInt("MCMXCIV"));

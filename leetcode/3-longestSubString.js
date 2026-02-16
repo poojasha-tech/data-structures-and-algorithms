@@ -5,7 +5,8 @@ function longestSubStringNoDuplicates(s) {
 
         if (bag.has(s[j])) {
             while (s[i] != s[j]) {
-                bag.delete(s[i])
+                bag.delete(s[i]) // we are deleting all the characters from the 
+                                 // left until we find the duplicate character
                 i++;
             }
             bag.delete(s[i])
@@ -17,7 +18,10 @@ function longestSubStringNoDuplicates(s) {
 
             bag.add(s[j])
             // max = j - i + 1 > max ? j - i + 1 : max; 
-            if (max < j - i + 1) {
+            if (max < j - i + 1) { // as we are only increasing j
+                                  // and i is only increasing when we have a duplicate, 
+                                  // so we can just check if the current length is greater
+                                  //  than max and update max accordingly
                 max = j - i + 1
             }
             j++;
@@ -29,3 +33,4 @@ function longestSubStringNoDuplicates(s) {
     return max
 
 }
+console.log(longestSubStringNoDuplicates("abcabcbb"))
