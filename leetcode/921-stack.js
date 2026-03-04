@@ -5,7 +5,7 @@ function minAddToMakeValid(s){
             stack.push(char)
         }
         else{
-            if(stack.includes("(")){stack.pop(char)}
+            if(stack.includes("(")){stack.pop(char)} // remove last "(" from stack if there is one, otherwise add ")" to stack
             else{
                 stack.push(char)
             }
