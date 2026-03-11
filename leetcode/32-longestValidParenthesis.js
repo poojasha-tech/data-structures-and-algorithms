@@ -20,4 +20,5 @@ function longestValidParentheses(s) {
 
 }
 
-console.log(longestValidParentheses("(()"))
+//console.log(longestValidParentheses("(()"))
+console.log(longestValidParentheses(")()())"))
